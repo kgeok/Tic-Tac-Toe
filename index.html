@@ -1,0 +1,141 @@
+<html>
+<title>Tic-Tac-Toe</title>
+<center>
+
+<body>
+    <style type='text/css'>
+        #1, #2, #3, #4, #5, #6, #7, #8, #9, {
+            border: 10px solid rgb(29, 3, 77);
+            padding: 5%;
+            opacity: 0.5;
+            text-align: center;
+            vertical-align: middle;
+            
+        }
+        #grid>div {
+            background-color: #FFFFFF;
+            text-align: center;
+            vertical-align: middle;
+            padding:20px 0;
+            font-size: 250%;
+            
+        }
+        #grid {
+
+            width: 50%;
+            height: 75%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+            background-color: rgb(112, 112, 112);
+            vertical-align: middle;
+            opacity: 0.5;
+            padding: 10px;
+        }
+
+        body {
+            background-color: rgb(255, 255, 255);
+            
+            font-family:verdana;
+            font-size: 8px;
+            text-align:center;
+        }
+
+    </style>
+    <br/>
+    <script>
+    var t = 1;
+
+    function colorchange(element){
+
+        if (t==1){
+        var c = document.getElementById(element);
+        c.style.backgroundColor= 'red';
+        t = 0;
+        console.log("Red, " + element);
+       //window.location.href="?uid=1";
+       document.getElementById(element).innerHTML = "X"
+
+
+
+       //     xhr.open("GET", "server.php", true);
+       //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+       //     xhr.send("url-1");
+
+        return;
+
+        }
+
+        if (t==0){
+        var c = document.getElementById(element);
+        c.style.backgroundColor= 'green';
+        t = 1;
+        console.log("Green, " + element);
+       //window.location.href="?uid=2";
+       document.getElementById(element).innerHTML = "O"
+
+        
+        //    xhr.open("GET", "server.php", true);
+        //    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        //    xhr.send("url-2");
+        
+        return;
+
+        }
+    }
+
+    function reset(){
+    
+    document.getElementById("1").innerHTML = ""
+    document.getElementById("2").innerHTML = ""
+    document.getElementById("3").innerHTML = ""
+    document.getElementById("4").innerHTML = ""
+    document.getElementById("5").innerHTML = ""
+    document.getElementById("6").innerHTML = ""
+    document.getElementById("7").innerHTML = ""
+    document.getElementById("8").innerHTML = ""
+    document.getElementById("9").innerHTML = ""
+    var c = document.getElementById('1');
+    c.style.backgroundColor= 'white';  
+    var c = document.getElementById('2');
+    c.style.backgroundColor= 'white'; 
+    var c = document.getElementById('3');
+    c.style.backgroundColor= 'white'; 
+    var c = document.getElementById('4');
+    c.style.backgroundColor= 'white';
+    var c = document.getElementById('5');
+    c.style.backgroundColor= 'white';
+    var c = document.getElementById('6');
+    c.style.backgroundColor= 'white';
+    var c = document.getElementById('7');
+    c.style.backgroundColor= 'white';
+    var c = document.getElementById('8');
+    c.style.backgroundColor= 'white';
+    var c = document.getElementById('9');
+    c.style.backgroundColor= 'white';
+    
+    console.clear()
+    }
+    
+    </script>
+
+<form action="server.php" method="get">
+<div id='grid'>
+        <div id="1" onclick= 'colorchange("1")'>&nbsp</div>
+        <div id="2" onclick= 'colorchange("2")'>&nbsp</div>
+        <div id="3" onclick= 'colorchange("3")'>&nbsp</div>  
+        <div id="4" onclick= 'colorchange("4")'>&nbsp</div>
+        <div id="5" onclick= 'colorchange("5")'>&nbsp</div>
+        <div id="6" onclick= 'colorchange("6")'>&nbsp</div>
+        <div id="7" onclick= 'colorchange("7")'>&nbsp</div>
+        <div id="8" onclick= 'colorchange("8")'>&nbsp</div>
+        <div id="9" onclick= 'colorchange("9")'>&nbsp</div>
+</div>
+</form>
+<br/>
+<button onclick = "reset()">Reset</button>
+
+<div id ="exec"></div>
+</body>
+</center>
+</html>
