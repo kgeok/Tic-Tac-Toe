@@ -4,7 +4,7 @@
 
 <body>
     <style type='text/css'>
-        #1, #2, #3, #4, #5, #6, #7, #8, #9, {
+        #1, #2, #3, #4, #5, #6, #7, #8, #9 {
             border: 10px solid rgb(29, 3, 77);
             padding: 5%;
             opacity: 0.5;
@@ -21,7 +21,6 @@
             
         }
         #grid {
-
             width: 50%;
             height: 75%;
             display: grid;
@@ -33,87 +32,240 @@
             padding: 10px;
         }
 
+        @keyframes fadeIn {
+            0% {
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+            }
+        }
+        
+        @-moz-keyframes fadeIn {
+            0% {
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+            }
+        }
+        
+        @-webkit-keyframes fadeIn {
+            0% {
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+            }
+        }
+        
+        @-o-keyframes fadeIn {
+            0% {
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+            }
+        }
+        
+        @-ms-keyframes fadeIn {
+            0% {
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+        }
+        }
+
+        /* */
+
+        @keyframes fadeOut {
+            0% {
+            opacity:1;
+            }
+            100% {
+            opacity:0;
+            }
+        }
+        
+        @-moz-keyframes fadeOut {
+            0% {
+            opacity:1;
+            }
+            100% {
+            opacity:0;
+            }
+        }
+        
+        @-webkit-keyframes fadeOut {
+            0% {
+            opacity:1;
+            }
+            100% {
+            opacity:0;
+            }
+        }
+        
+        @-o-keyframes fadeOut {
+            0% {
+            opacity:1;
+            }
+            100% {
+            opacity:0;
+            }
+        }
+        
+        @-ms-keyframes fadeOut {
+            0% {
+            opacity:1;
+            }
+            100% {
+            opacity:0;
+        }
+        }
+
+        @media (prefers-color-scheme: light) {
         body {
-            background-color: rgb(255, 255, 255);
-            
+            justify-content: center;
+            text-align: center;
+            background-color: #FFFFFF;
+            color: black;
+            margin:0 auto;
             font-family:verdana;
             font-size: 8px;
-            text-align:center;
+            animation: fadeIn ease 0.25s;
+            -webkit-animation: fadeIn ease 0.25s;
+            -moz-animation: fadeIn ease 0.25s;
+            -o-animation: fadeIn ease 0.25s;
+            -ms-animation: fadeIn ease 0.25s;
+
+            }
+            a {
+
+            color: black;
+            
+            }
+            
+            a:visited {
+            
+            color: black;
+            
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                justify-content: center;
+                text-align: center;
+                background-color: #1d1d1d;
+                color: white;
+                margin:0 auto;
+                font-family:verdana;
+                font-size: 8px;
+                animation: fadeIn ease 0.25s;
+                -webkit-animation: fadeIn ease 0.25s;
+                -moz-animation: fadeIn ease 0.25s;
+                -o-animation: fadeIn ease 0.25s;
+                -ms-animation: fadeIn ease 0.25s;
+
+            }
+              a {
+
+                color: white;
+
+                }
+
+                a:visited {
+
+                color: white;
+
+                }
+
         }
 
     </style>
     <br/>
     <script>
-    var t = 1;
+    var t = Math.floor(Math.random()*(1-0+1));
+    moves = [];
 
     function colorchange(element){
 
-        if (t==1){
+        if (t == 1){
         var c = document.getElementById(element);
         c.style.backgroundColor= 'red';
+        c.style.animation = "fadeIn ease 0.25s";
         t = 0;
         console.log("Red, " + element);
        //window.location.href="?uid=1";
        document.getElementById(element).innerHTML = "X"
-
-
 
        //     xhr.open("GET", "server.php", true);
        //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
        //     xhr.send("url-1");
 
         return;
-
         }
 
-        if (t==0){
+        if (t == 0){
         var c = document.getElementById(element);
         c.style.backgroundColor= 'green';
+        c.style.animation = "fadeIn ease 0.25s";
         t = 1;
         console.log("Green, " + element);
        //window.location.href="?uid=2";
        document.getElementById(element).innerHTML = "O"
-
-        
+    
         //    xhr.open("GET", "server.php", true);
         //    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         //    xhr.send("url-2");
         
         return;
-
         }
+
     }
 
     function reset(){
     
-    document.getElementById("1").innerHTML = ""
-    document.getElementById("2").innerHTML = ""
-    document.getElementById("3").innerHTML = ""
-    document.getElementById("4").innerHTML = ""
-    document.getElementById("5").innerHTML = ""
-    document.getElementById("6").innerHTML = ""
-    document.getElementById("7").innerHTML = ""
-    document.getElementById("8").innerHTML = ""
-    document.getElementById("9").innerHTML = ""
+    document.getElementById("1").innerHTML = "&nbsp"
+    document.getElementById("2").innerHTML = "&nbsp"
+    document.getElementById("3").innerHTML = "&nbsp"
+    document.getElementById("4").innerHTML = "&nbsp"
+    document.getElementById("5").innerHTML = "&nbsp"
+    document.getElementById("6").innerHTML = "&nbsp"
+    document.getElementById("7").innerHTML = "&nbsp"
+    document.getElementById("8").innerHTML = "&nbsp"
+    document.getElementById("9").innerHTML = "&nbsp"
     var c = document.getElementById('1');
-    c.style.backgroundColor= 'white';  
+    c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s"; 
     var c = document.getElementById('2');
-    c.style.backgroundColor= 'white'; 
+    c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s";
     var c = document.getElementById('3');
-    c.style.backgroundColor= 'white'; 
+    c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s"; 
     var c = document.getElementById('4');
     c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s";
     var c = document.getElementById('5');
     c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s";
     var c = document.getElementById('6');
     c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s";
     var c = document.getElementById('7');
     c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s";
     var c = document.getElementById('8');
     c.style.backgroundColor= 'white';
+    c.style.animation = "fadeOut ease 0.25s";
     var c = document.getElementById('9');
     c.style.backgroundColor= 'white';
-    
+    c.style.animation = "fadeOut ease 0.25s";
+
+    var t = Math.floor(Math.random()*(1-0+1));
+
     console.clear()
     }
     
