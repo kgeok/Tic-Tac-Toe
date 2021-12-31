@@ -198,6 +198,7 @@
     <script>
     var t = Math.floor(Math.random()*(1-0+1));
     moves = [];
+    moves.length = 9;
 
     function colorchange(element){
 
@@ -206,6 +207,7 @@
         c.style.backgroundColor= 'red';
         c.style.animation = "fadeIn ease 0.25s";
         t = 0;
+        moves[element-1] = "0";
         console.log("Red, " + element);
        //window.location.href="?uid=1";
        document.getElementById(element).innerHTML = "X"
@@ -222,6 +224,7 @@
         c.style.backgroundColor= 'green';
         c.style.animation = "fadeIn ease 0.25s";
         t = 1;
+        moves[element-1] = "1";
         console.log("Green, " + element);
        //window.location.href="?uid=2";
        document.getElementById(element).innerHTML = "O"
@@ -235,7 +238,43 @@
 
     }
 
+    function scorecheck(){
+
+    var winner;
+
+
+    if ((moves[0] == moves[1]) && moves[0] == moves[2]){winner=moves[0]};
+    if ((moves[0] == moves[3]) && moves[0] == moves[6]){winner=moves[0]};
+    if ((moves[0] == moves[4]) && moves[0] == moves[8]){winner=moves[0]};
+    if ((moves[1] == moves[4]) && moves[1] == moves[7]){winner=moves[0]};
+    if ((moves[2] == moves[4]) && moves[2] == moves[6]){winner=moves[0]};
+    if ((moves[2] == moves[5]) && moves[2] == moves[8]){winner=moves[0]};
+    if ((moves[3] == moves[4]) && moves[3] == moves[5]){winner=moves[0]};
+    if ((moves[6] == moves[7]) && moves[6] == moves[8]){winner=moves[0]};
+
+
+    switch (winner) {
+
+    case 0:
+    console.log("O Wins!");
+    break;
+
+    case 1:
+    console.log("X Wins!");
+    break;
+
+    default:
+    break;
+
+
+    }
+
+
+    }
+
     function reset(){
+
+    moves = [];
     
     document.getElementById("1").innerHTML = "&nbsp"
     document.getElementById("2").innerHTML = "&nbsp"
